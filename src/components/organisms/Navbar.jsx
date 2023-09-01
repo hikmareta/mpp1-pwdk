@@ -1,6 +1,6 @@
-import style from "../style/Navbar.module.css";
+import style from "/src/style/Navbar.module.css";
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <nav className={style.navbar}>
       <div className={style.leftSec}>
@@ -22,3 +22,5 @@ export const Navbar = () => {
     </nav>
   );
 };
+
+export default Navbar
