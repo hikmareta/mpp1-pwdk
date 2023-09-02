@@ -2,7 +2,7 @@
 const Navbar = () => {
   return (
     <>
-    <header className="bg-white sticky top-0 shadow-md">
+    <header className="bg-white sticky top-0 shadow-md z-20">
     <div className="mx-auto container px-4 sm:px-6 lg:px-8">
     <div className="flex h-16 items-center justify-between">
       <div className="flex-1 md:flex md:items-center md:gap-12">
@@ -45,7 +45,7 @@ const Navbar = () => {
 
             <div className="hidden sm:flex">
               <a
-                className="rounded-md bg-primaryColor px-5 py-2 text-sm font-medium text-white hover:bg-white hover:text-primaryColor hover:border-2 hover:border-primaryColor"
+                className="rounded-md bg-primaryColor px-5 py-2 text-sm font-medium text-white hover:drop-shadow-2xl"
                 href="/"
               >
                 Sign Up
