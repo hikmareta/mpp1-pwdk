@@ -1,26 +1,80 @@
-import style from "/src/style/Navbar.module.css";
 
 const Navbar = () => {
   return (
-    <nav className={style.navbar}>
-      <div className={style.leftSec}>
-        <h1>
-          <b> PASSIFY </b>
-        </h1>
+    <>
+    <header className="bg-white sticky top-0 shadow-md z-20">
+    <div className="mx-auto container px-4 sm:px-6 lg:px-8">
+    <div className="flex h-16 items-center justify-between">
+      <div className="flex-1 md:flex md:items-center md:gap-12">
+        <a className="block text-black" href="/">
+          <h2 className="font-bold text-3xl">PASSIFY</h2>
+        </a>
       </div>
-      <div className={style.middleSec}>
-        <input type="text" placeholder="Search Event" className = {style.searchBar}/>
-      </div>
-      <div className={style.rightSec}>
-        <p> Create Event </p>
-        <p> Explore </p>
-        <div>
-          <button className={style.loginBtn}> Login </button>
-          <button className={style.registerBtn}> Sign Up </button>
+
+      <div className="md:flex md:items-center md:gap-12">
+        <nav aria-label="Global" className="hidden md:block">
+          <ul className="flex items-center gap-6 text-sm">
+            <li>
+              <a
+                className="text-gray-500 transition hover:text-gray-500/75"
+                href="/"
+              >
+                Create Event
+              </a>
+            </li>
+
+            <li>
+              <a
+                className="text-gray-500 transition hover:text-gray-500/75"
+                href="/"
+              >
+                Explore
+              </a>
+            </li> 
+          </ul>
+        </nav>
+
+        <div className="flex items-center gap-4">
+          <div className="sm:flex sm:gap-4">
+            <a
+              className="rounded-md border-primaryColor border-2 border-solid px-5 py-2 text-sm font-medium text-primaryColor shadow hover:bg-primaryColor hover:text-white hover:shadow-2xl"
+              href="/"
+            >
+              Login
+            </a>
+
+            <div className="hidden sm:flex">
+              <a
+                className="rounded-md bg-primaryColor px-5 py-2 text-sm font-medium text-white hover:drop-shadow-2xl"
+                href="/"
+              >
+                Sign Up
+              </a>
+            </div>
+          </div>
+
+          <div className="block md:hidden">
+            <button
+              className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-    </nav>
-  );
+    </div>
+  </div>
+</header>
+    </>
+  )
 };
 
 export default Navbar
