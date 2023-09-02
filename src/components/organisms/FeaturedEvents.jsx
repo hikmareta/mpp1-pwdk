@@ -6,8 +6,8 @@ const FeaturedEvent = () => {
             <div className="container mx-auto px-5 text-left">
                 <h4 className="font-semibold text-lg text-primaryColor">Grow Today</h4>
                 <h2 className="text-2xl font-bold text-black lg:text-4xl mb-6 lg:mb-10">Featured Event</h2>
-                <div className="flex flex-wrap md:grid lg:grid-cols-4 gap-10 justify-center">
-                    <div className="rounded-xl w-[350px] h-full shadow-lg hover:shadow-2xl">
+                <div className="flex flex-wrap md:grid md:grid-cols-2 lg:grid-cols-4 gap-10 justify-center">
+                    <div className="rounded-xl w-full h-full shadow-lg hover:shadow-2xl">
                         <img className="rounded-t-xl h-[180px] w-full" src="/src/assets/img/hero-image.webp" alt="gambar event" />
                         <div className="px-6 pb-8">
                             <h2 className="font-semibold text-2xl text-primaryColor mt-4 mb-3 line-clamp-2 hover:line-clamp-none">Programming Itu Menyenangkan Bukan? Bukan! :D</h2>
@@ -19,7 +19,7 @@ const FeaturedEvent = () => {
                             <p className="border-t-slate-200 border-t-2 font-bold text-xl pt-3">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div className="rounded-xl w-[350px] h-full shadow-lg hover:shadow-2xl">
+                    <div className="rounded-xl w-full h-full shadow-lg hover:shadow-2xl">
                         <img className="rounded-t-xl h-[180px] w-full" src="/src/assets/img/hero-image.webp" alt="gambar event" />
                         <div className="px-6 pb-8">
                             <h2 className="font-semibold text-2xl text-primaryColor mt-4 mb-3 line-clamp-2 hover:line-clamp-none">Programming Itu Menyenangkan Bukan? Bukan! :D</h2>
@@ -31,7 +31,7 @@ const FeaturedEvent = () => {
                             <p className="border-t-slate-200 border-t-2 font-bold text-xl pt-3">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div className="rounded-xl w-[350px] h-full shadow-lg hover:shadow-2xl">
+                    <div className="rounded-xl w-full h-full shadow-lg hover:shadow-2xl">
                         <img className="rounded-t-xl h-[180px] w-full" src="/src/assets/img/hero-image.webp" alt="gambar event" />
                         <div className="px-6 pb-8">
                             <h2 className="font-semibold text-2xl text-primaryColor mt-4 mb-3 line-clamp-2 hover:line-clamp-none">Programming Itu Menyenangkan Bukan? Bukan! :D</h2>
@@ -43,7 +43,7 @@ const FeaturedEvent = () => {
                             <p className="border-t-slate-200 border-t-2 font-bold text-xl pt-3">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div className="rounded-xl w-[350px] h-full shadow-lg hover:shadow-2xl">
+                    <div className="rounded-xl w-full h-full shadow-lg hover:shadow-2xl">
                         <img className="rounded-t-xl h-[180px] w-full" src="/src/assets/img/hero-image.webp" alt="gambar event" />
                         <div className="px-6 pb-8">
                             <h2 className="font-semibold text-2xl text-primaryColor mt-4 mb-3 line-clamp-2 hover:line-clamp-none">Programming Itu Menyenangkan Bukan? Bukan! :D</h2>
