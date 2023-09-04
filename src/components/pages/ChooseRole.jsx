@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ChooseRole = () => {
   return (
     <div>
@@ -63,7 +65,7 @@ const ChooseRole = () => {
               href="#"
               className="mt-8 block rounded-full border border-indigo-600 bg-indigo-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-indigo-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500"
             >
-              Create Event
+              <Link to="/create-event"> Create Event </Link>
             </a>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -93,14 +93,17 @@ const Login = () => {
           <div className="flex items-center justify-between">
             <p className="text-sm text-gray-500">
               No account?
-              <Link to = '/signup'> <b> Sign Up Here </b></Link>
+              <Link to="/signup">
+                {" "}
+                <b> Sign Up Here </b>
+              </Link>
             </p>
 
             <button
               type="submit"
               className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
             >
-              Sign in
+              <Link to="/"> Login </Link>
             </button>
           </div>
         </form>
