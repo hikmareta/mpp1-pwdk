@@ -2,7 +2,7 @@ const FeaturedEvent = () => {
 
     return (
       <>
-          <section className="bg-white pt-32">
+          <section id="featured-event" className="bg-white pt-32">
             <div className="container mx-auto px-5 text-left">
                 <h4 className="font-semibold text-lg text-primaryColor">Grow Today</h4>
                 <h2 className="text-2xl font-bold text-black lg:text-4xl mb-6 lg:mb-10">Featured Event</h2>

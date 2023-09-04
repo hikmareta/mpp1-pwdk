@@ -4,6 +4,7 @@ import Navbar from './components/organisms/Navbar'
 import Footer from './components/organisms/Footer'
 import Home from './components/pages/Home'
 import NotFound from './components/organisms/NotFound'
+import EventDetail from './components/pages/EventDetail'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
     <Routes>
         <Route path='/' element={<Home />} />
         <Route path='*' element={<NotFound />} />
+        <Route path='/event' element={<EventDetail />} />
     </Routes> 
     <Footer />
     </>
