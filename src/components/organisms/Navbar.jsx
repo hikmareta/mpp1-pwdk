@@ -23,7 +23,7 @@ const Navbar = () => {
 
                   <li>
                     <div className="text-gray-500 transition hover:text-gray-500/75">
-                      Explore
+                      <Link to="/explore"> Explore </Link>
                     </div>
                   </li>
                 </ul>
