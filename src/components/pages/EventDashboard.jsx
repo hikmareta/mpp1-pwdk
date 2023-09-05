@@ -7,50 +7,53 @@ import { useNavigate } from "react-router-dom";
 
 const data = [
   {
-    name:"Lorem Ipsum Event1",
+    name: "Lorem Ipsum Event1",
     startDate: "1 Sept 23",
-    endDate:"2 Sept 23",
+    endDate: "2 Sept 23",
     price: 240000,
-    ticketSold:200,
+    ticketSold: 200,
     stock: 2400,
-    imgUrl:"https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus:true,
+    imgUrl:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    eventStatus: true,
   },
   {
-    name:"Lorem Ipsum Event2",
+    name: "Lorem Ipsum Event2",
     startDate: "2 Sept 23",
-    endDate:"2 Sept 23",
+    endDate: "2 Sept 23",
     price: 100000,
-    ticketSold:4000,
+    ticketSold: 4000,
     stock: 4000,
-    imgUrl:"https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus:true,
+    imgUrl:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    eventStatus: true,
   },
   {
-    name:"Lorem Ipsum Event3",
+    name: "Lorem Ipsum Event3",
     startDate: "1 Sept 23",
-    endDate:"5 Sept 23",
+    endDate: "5 Sept 23",
     price: 1500000,
-    ticketSold:400,
+    ticketSold: 400,
     stock: 2400,
-    imgUrl:"https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus:true,
+    imgUrl:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    eventStatus: true,
   },
   {
-    name:"Lorem Ipsum Event4",
+    name: "Lorem Ipsum Event4",
     startDate: "3 Sept 23",
-    endDate:"3 Sept 23",
+    endDate: "3 Sept 23",
     price: 500000,
-    ticketSold:100,
+    ticketSold: 100,
     stock: 2400,
-    imgUrl:"https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus:true,
+    imgUrl:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    eventStatus: true,
   },
-  
 ];
 
 const EventDasboard = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <Container>
       <BackButton>Event Dashboard</BackButton>
@@ -85,21 +88,26 @@ const EventDasboard = () => {
           <p className={styles.textDetails}>Status</p>
         </div>
         <div className={styles.eventsWrapper}>
-        {data.map((data, idx)=>{
-          return(
-            <div className={styles.listWrapper} onClick={()=> navigate(""+idx)} key={idx}>
-            <img
-              className={styles.eventImg}
-              src={data.imgUrl}
-            />
-            <p className={styles.textDetails}>{data.name}</p>
-            <p className={styles.textDetails}>{data.startDate}</p>
-            <p className={styles.textDetails}>IDR{data.price}</p>
-            <p className={styles.textDetails}>{data.ticketSold}/{data.stock}</p>
-            <p className={styles.textDetails}>{data.eventStatus ? "Active" : "End"}</p>
-          </div>
-          )
-        })}
+          {data.map((data, idx) => {
+            return (
+              <div
+                className={styles.listWrapper}
+                onClick={() => navigate("" + idx)}
+                key={idx}
+              >
+                <img className={styles.eventImg} src={data.imgUrl} />
+                <p className={styles.textDetails}>{data.name}</p>
+                <p className={styles.textDetails}>{data.startDate}</p>
+                <p className={styles.textDetails}>IDR{data.price}</p>
+                <p className={styles.textDetails}>
+                  {data.ticketSold}/{data.stock}
+                </p>
+                <p className={styles.textDetails}>
+                  {data.eventStatus ? "Active" : "End"}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </Container>
