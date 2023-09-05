@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../style/Orderlist.module.css";
 const OrderCard = (props) => {
-    const data = props.data
+  const data = props.data;
   return (
     <div className={styles.orderCard}>
       <img src="https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg" />
@@ -14,8 +14,16 @@ const OrderCard = (props) => {
           </p>
         </div>
         <div className={styles.summary}>
-          <p>IDR {data?.price*data?.qty}</p>
-          {data.status && <button className={styles.btnReview}>Review</button>}
+          <p>IDR {data?.price * data?.qty}</p>
+          {data.status ? (
+            <button className={styles.btnReview}>Review</button>
+          ) : (
+            <p>
+              referral code:
+              <br />
+              <span>REFCODE123</span>
+            </p>
+          )}
         </div>
       </div>
     </div>

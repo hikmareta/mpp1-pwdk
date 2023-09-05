@@ -7,11 +7,17 @@ const PromoCard = (props) => {
     <div className={styles.promoCard}>
       <p style={{ display: "flex", justifyContent: "space-between" }}>
         Promotion Code
-        {
-            promo !== null ?
-            <span>Remove</span>
-            : <button className={styles.btnPrimary} style={{marginLeft:'5px'}} onClick={props.onClickAddPromo}>Add</button>
-        }
+        {promo !== null ? (
+          <span>Remove</span>
+        ) : (
+          <button
+            className={styles.btnPrimary}
+            style={{ marginLeft: "5px" }}
+            onClick={props.onClickAddPromo}
+          >
+            Add
+          </button>
+        )}
       </p>
       {promo !== null ? (
         <>

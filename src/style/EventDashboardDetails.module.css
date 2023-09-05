@@ -1,207 +1,211 @@
-.section1{
-    display: flex;
-    width: 100%;
-    gap:1em;
-    margin-bottom: 2em;
-    /* flex-wrap:wrap; */
+.section1 {
+  display: flex;
+  width: 100%;
+  gap: 1em;
+  margin-bottom: 2em;
+  /* flex-wrap:wrap; */
 }
-.section1Left{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    min-width: 400px;
-    min-height: 40vh;
-    justify-content: space-between;
-    align-items: center;
+.section1Left {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 400px;
+  min-height: 40vh;
+  justify-content: space-between;
+  align-items: center;
 }
-.section1Right{
-    display: flex;
-    max-width: 500px;
-    min-width: 400px;
-    flex-direction: column;
-    row-gap: 1em;
+.section1Right {
+  display: flex;
+  max-width: 500px;
+  min-width: 400px;
+  flex-direction: column;
+  row-gap: 1em;
 }
 
-.eventCard{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    border-radius: 1em;
-    overflow: hidden;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.25));
-    background-color: white;
-    /* padding: 1em; */
+.eventCard {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  border-radius: 1em;
+  overflow: hidden;
+  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.25));
+  background-color: white;
+  /* padding: 1em; */
 }
-.chartWrapper, .promoCard{
-    width: 100%;
-    height: 500px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 1rem;
-    filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.25));
+.chartWrapper,
+.promoCard {
+  width: 100%;
+  height: 500px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 1rem;
+  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.25));
 }
-.promoCard{
-    height: fit-content;
+.promoCard {
+  height: fit-content;
 }
-.promoCard p{
-    margin-top: .3em;
-    margin-bottom: .3em;
+.promoCard p {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
 }
-.promoCard p:nth-child(1){
-    color: #1450A3;
-    font-weight: 600;
+.promoCard p:nth-child(1) {
+  color: #1450a3;
+  font-weight: 600;
 }
-.promoCard p:nth-child(1) span{
-    color: red;
-    font-weight: 400;
-    cursor: pointer;
+.promoCard p:nth-child(1) span {
+  color: red;
+  font-weight: 400;
+  cursor: pointer;
 }
-.promoCard p:nth-child(2){
-    color: black;
-    font-weight: 600;
+.promoCard p:nth-child(2) {
+  color: black;
+  font-weight: 600;
 }
-.eventCard img{
-    width: 100%;
-    height: 50%;
-    object-fit: cover;
+.eventCard img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
 }
-.eventCard div{
-    display: flex;
-    flex-direction: column;
-    row-gap: .5em;
+.eventCard div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
 }
-.eventCard div p:nth-child(1){
-    font-weight: 500;
-    color: #1450A3;
-    font-size: 1.3em;
+.eventCard div p:nth-child(1) {
+  font-weight: 500;
+  color: #1450a3;
+  font-size: 1.3em;
 }
-.eventCard div p:nth-child(2){
-    font-weight: 600;
-    color: black;
+.eventCard div p:nth-child(2) {
+  font-weight: 600;
+  color: black;
 }
 .table {
-    width: 100%;
-    overflow-x: auto;
+  width: 100%;
+  overflow-x: auto;
 }
-th, td{
-    text-align: left;
-    padding: 8px;
+th,
+td {
+  text-align: left;
+  padding: 8px;
 }
-th{
-    background-color: white;
+th {
+  background-color: white;
 }
-tr:nth-child(even){
-    background-color: gainsboro;
+tr:nth-child(even) {
+  background-color: gainsboro;
 }
 
-.backDrop{
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.25);
-    z-index: 999;
-    top: 0;
-    left: 0;
+.backDrop {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  top: 0;
+  left: 0;
 }
-.modalPromo{
-    display: flex;
-    flex-direction: column;
-    min-width: 400px;
-    border-radius: 1em;
-    background-color: white;
-    padding: 2em;
-    gap: 1em;
+.modalPromo {
+  display: flex;
+  flex-direction: column;
+  min-width: 400px;
+  border-radius: 1em;
+  background-color: white;
+  padding: 2em;
+  gap: 1em;
 }
-label input{
-    border: 1px solid #d4d4d4;
-    border-radius: 5px;
-    padding: 10px;
-    box-sizing: border-box;
-    height: 2em;
+label input {
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 2em;
 }
-label{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+label {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
-.btnWrapper{
-    display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    column-gap: 10px;
+.btnWrapper {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  column-gap: 10px;
 }
-.btnPrimary, .btnSecondary, .btnDanger{
-    min-width: 100px;
-    font-size: .9em;
-    border-radius: 5px;
-    padding: 5px 10px;
+.btnPrimary,
+.btnSecondary,
+.btnDanger {
+  min-width: 100px;
+  font-size: 0.9em;
+  border-radius: 5px;
+  padding: 5px 10px;
 }
-.btnPrimary{
-    background-color: #1450A3;
-    color: white;
+.btnPrimary {
+  background-color: #1450a3;
+  color: white;
 }
-.btnSecondary{
-    background-color: white;
-    color: #1450A3;
-    border: 1px solid #1450A3;
+.btnSecondary {
+  background-color: white;
+  color: #1450a3;
+  border: 1px solid #1450a3;
 }
-.btnDanger{
-    background-color: white;
-    color: #C44F4F;
-    border: 1px solid #C44F4F;
+.btnDanger {
+  background-color: white;
+  color: #c44f4f;
+  border: 1px solid #c44f4f;
 }
 
 @media (max-width: 850px) {
-    .section1{
-      flex-wrap:wrap;
-      justify-content: center;
-      align-items: center;
-    }
-    .section1Left .btnWrapper{
-        justify-content: center;
-        margin: 20px;
-    }
-    .section1Left{
-        min-height: 20vh;
-    }
-    .table{
-        display: block;
-        overflow-x: auto;
-    }
-    .chartWrapper{
-        max-width: 500px;
-        max-height: 200px;
-    }
+  .section1 {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
+  .section1Left .btnWrapper {
+    justify-content: center;
+    margin: 20px;
+  }
+  .section1Left {
+    min-height: 20vh;
+  }
+  .table {
+    display: block;
+    overflow-x: auto;
+  }
+  .chartWrapper {
+    max-width: 500px;
+    max-height: 200px;
+  }
+}
 @media (max-width: 424px) {
-    .section1Left{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        min-width: 250px;
-        min-height: 20vh;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .section1Right{
-        display: flex;
-        max-width: 350px;
-        min-width: 200px;
-        flex-direction: column;
-        row-gap: 1em;
-    }
-    .modalPromo{
-        min-width: 200px;
-        padding: 1em;
-    }
-    .modalPromo .btnWrapper{
-        min-width: 200px;
-    }
-    .chartWrapper{
-        padding: 5px;
-    }
+  .section1Left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 250px;
+    min-height: 20vh;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .section1Right {
+    display: flex;
+    max-width: 350px;
+    min-width: 200px;
+    flex-direction: column;
+    row-gap: 1em;
+  }
+  .modalPromo {
+    min-width: 200px;
+    padding: 1em;
+  }
+  .modalPromo .btnWrapper {
+    min-width: 200px;
+  }
+  .chartWrapper {
+    padding: 5px;
+  }
 }
