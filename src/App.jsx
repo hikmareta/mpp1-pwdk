@@ -12,6 +12,7 @@ import Signup from "./components/pages/Signup";
 import ChooseRole from "./components/pages/ChooseRole";
 import EventDetail from "./components/pages/EventDetail";
 import ExploreEvent from "./components/pages/ExploreEvent";
+import EventCreation from "./components/pages/EventCreation";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/choose-role" element={<ChooseRole />} />
         <Route path="/event-detail/:id" element={<EventDetail />} />
         <Route path="/explore" element={<ExploreEvent />} />
+        <Route path="/create-event/:id" element={<EventCreation />} />
       </Routes>
       <Footer />
     </>
