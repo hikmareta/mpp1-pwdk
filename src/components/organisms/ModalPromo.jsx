@@ -32,8 +32,12 @@ const ModalPromo = (props) => {
             <input type="number"></input>
           </label>
           <div className={styles.btnWrapper}>
-            <button className={styles.btnSecondary} onClick={()=>{}}>Add</button>
-            <button className={styles.btnPrimary} onClick={props.onClickCancel}>Cancel</button>
+            <button className={styles.btnSecondary} onClick={() => {}}>
+              Add
+            </button>
+            <button className={styles.btnPrimary} onClick={props.onClickCancel}>
+              Cancel
+            </button>
           </div>
         </div>
       </form>
