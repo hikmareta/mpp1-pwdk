@@ -14,6 +14,7 @@ import EventDetail from "./components/pages/EventDetail";
 import ExploreEvent from "./components/pages/ExploreEvent";
 import EventCreation from "./components/pages/EventCreation";
 import Review from "./components/pages/Review";
+import EventRegistration from "./components/pages/EventRegistration";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/explore" element={<ExploreEvent />} />
         <Route path="/create-event/:id" element={<EventCreation />} />
         <Route path="/:id/order-list/:orderId/review" element={<Review />} />
+        <Route path="/:id/registration" element={<EventRegistration />} />
       </Routes>
       <Footer />
     </>
