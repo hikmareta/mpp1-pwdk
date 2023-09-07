@@ -15,48 +15,19 @@ import {
 const data = [
   {
     name: "Lorem Ipsum Event1",
-    startDate: "1 Sept 23",
-    endDate: "2 Sept 23",
+    start_date: "1 Sept 23",
+    end_date: "2 Sept 23",
+    start_time: '19.00',
+    end_time: '20.00',
     price: 240000,
+    location: "DKI Jakarta",
+    img_url:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    desc:"lorem ipsum bla bla bla description",
     ticketSold: 200,
     stock: 2400,
-    imgUrl:
-      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
     eventStatus: true,
-  },
-  {
-    name: "Lorem Ipsum Event2",
-    startDate: "2 Sept 23",
-    endDate: "2 Sept 23",
-    price: 100000,
-    ticketSold: 4000,
-    stock: 4000,
-    imgUrl:
-      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus: true,
-  },
-  {
-    name: "Lorem Ipsum Event3",
-    startDate: "1 Sept 23",
-    endDate: "5 Sept 23",
-    price: 1500000,
-    ticketSold: 400,
-    stock: 2400,
-    imgUrl:
-      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus: true,
-  },
-  {
-    name: "Lorem Ipsum Event4",
-    startDate: "3 Sept 23",
-    endDate: "3 Sept 23",
-    price: 500000,
-    ticketSold: 100,
-    stock: 2400,
-    imgUrl:
-      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus: true,
-  },
+  }
 ];
 
 const EventDasboard = () => {
@@ -103,14 +74,14 @@ const EventDasboard = () => {
                 onClick={() => navigate("" + idx)}
                 key={idx}
               >
-                <img className="h-24 object-cover w-[15%] max-sm:w-full max-sm:h-1/2" src={data.imgUrl} alt="event-img" />
+                <img className="h-24 object-cover w-[15%] max-sm:w-full max-sm:h-1/2" src={data.img_url} alt="event-img" />
                 <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
                     Event Title
                     <span className="w-fit font-semibold">{data.name}</span>
                 </p>
                 <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
                     Date
-                    <span className="w-fit font-semibold">{data.startDate}</span>
+                    <span className="w-fit font-semibold">{data.start_date}</span>
                 </p>
                 <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
                     Price

@@ -17,13 +17,17 @@ import {
 const data = [
   {
     name: "Lorem Ipsum Event1",
-    startDate: "1 Sept 23",
-    endDate: "2 Sept 23",
+    start_date: "1 Sept 23",
+    end_date: "2 Sept 23",
+    start_time: '19.00',
+    end_time: '20.00',
     price: 240000,
+    location: "DKI Jakarta",
+    img_url:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    desc:"lorem ipsum bla bla bla description",
     ticketSold: 200,
     stock: 2400,
-    imgUrl:
-      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
     eventStatus: true,
   },
   {
@@ -88,12 +92,12 @@ const EventDashboardDetails = () => {
           </div>
         </div>
         <div className="flex flex-col w-[35%] gap-y-4 min-h-[45%] max-md:w-full max-h-fit h-fit">
-          <EventCard />
+          <EventCard data={data[0]}/>
           <PromoCard onClickAddPromo={() => setModalOpen(true)} />
         </div>
       </div>
       <h2 className="text-2xl font-semibold">Transaction</h2>
-      <div className="block overflow-x-scroll">
+      <div className="block overflow-x-auto">
         <table className="table-auto w-full">
           <thead>
             <tr>
