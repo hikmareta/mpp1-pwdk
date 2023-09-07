@@ -27,7 +27,7 @@ function App() {
           path="/:id/dashboard/:eventID"
           element={<EventDashboardDetails />}
         />
-        <Route path="/:id/order-list" element={<OrderList />} />
+        <Route path="/order-list" element={<OrderList />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
@@ -35,7 +35,7 @@ function App() {
         <Route path="/event-detail/:id" element={<EventDetail />} />
         <Route path="/explore" element={<ExploreEvent />} />
         <Route path="/create-event/:id" element={<EventCreation />} />
-        <Route path="/:id/order-list/:orderId/review" element={<Review />} />
+        <Route path="/order-list/:orderId/review" element={<Review />} />
         <Route path="/:id/registration" element={<EventRegistration />} />
       </Routes>
       <Footer />

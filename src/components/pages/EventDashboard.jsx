@@ -3,6 +3,14 @@ import { BackButton } from "../atoms/BackButton";
 import Chart from "../molecules/Chart";
 import Container from "../atoms/Container";
 import { useNavigate } from "react-router-dom";
+import {
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 
 const data = [
   {
@@ -58,7 +66,15 @@ const EventDasboard = () => {
       <BackButton>Event Dashboard</BackButton>
       <div className="flex gap-4 h-auto min-h-[400px] max-md:flex-wrap">
         <div className="w-full min-w-[400px] bg-white p-5 rounded-xl shadow-lg max-md:min-w-full">
-          <Chart data={data} />
+          <Chart data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="ticketSold" fill="#1450A3" />
+              <Bar dataKey="stock" fill="#0faaaa" />
+          </Chart>
         </div>
         <div className="flex flex-col justify-between gap-4 min-w-[300px] max-md:w-full max-md:min-w-full">
           <div className="flex-col rounded-lg h-[50%] justify-center items-center text-primaryColor bg-white flex rounded-lg shadow-lg max-md:p-2">
