@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "../../style/EventDashboard.module.css";
 import { BackButton } from "../atoms/BackButton";
 import Chart from "../molecules/Chart";
 import Container from "../atoms/Container";
@@ -57,53 +56,57 @@ const EventDasboard = () => {
   return (
     <Container>
       <BackButton>Event Dashboard</BackButton>
-      <div className={styles.chartContainer}>
-        <div className={styles.chartWrapper}>
+      <div className="flex gap-4 h-auto min-h-[400px] max-md:flex-wrap">
+        <div className="w-full min-w-[400px] bg-white p-5 rounded-xl shadow-lg max-md:min-w-full">
           <Chart data={data} />
         </div>
-        <div className={styles.statWrapper}>
-          <div className={styles.incomeWrap}>
+        <div className="flex flex-col justify-between gap-4 min-w-[300px] max-md:w-full max-md:min-w-full">
+          <div className="flex-col rounded-lg h-[50%] justify-center items-center text-primaryColor bg-white flex rounded-lg shadow-lg max-md:p-2">
             <h3>Total Income</h3>
-            <h1 className={styles.statValue}>IDR 2.000.000.000.000</h1>
+            <h1 className="font-semibold text-2xl max-sm:text-lg">IDR 2.000.000.000.000</h1>
           </div>
-          <div className={styles.ticketWrap}>
-            <div className={styles.ticketVal}>
+          <div className="flex flex-row gap-x-4 bg-none rounded-lg h-[50%]">
+            <div className="flex flex-col justify-center items-center h-full w-6/12 rounded-lg text-primaryColor bg-white shadow-lg max-md:p-2">
               <h3>Tickets sold</h3>
-              <h1 className={styles.statValue}>5.000</h1>
+              <h1 className="font-semibold text-2xl  max-sm:text-lg">5.000</h1>
             </div>
-            <div className={styles.ticketVal}>
+            <div className="flex flex-col justify-center items-center h-full w-6/12 rounded-lg text-primaryColor bg-white shadow-lg max-md:p-2">
               <h3>Total Ticket</h3>
-              <h1 className={styles.statValue}>10.000</h1>
+              <h1 className="font-semibold text-2xl  max-sm:text-lg">10.000</h1>
             </div>
           </div>
         </div>
       </div>
-      <h2 className="font-bold text-2xl mt-5 mb-2">Your Events</h2>
-      <div className={styles.eventContainer}>
-        <div className={styles.titleWrapper}>
-          <p className={styles.textDetails}>Event Title</p>
-          <p className={styles.textDetails}>Date</p>
-          <p className={styles.textDetails}>Price</p>
-          <p className={styles.textDetails}>Stock</p>
-          <p className={styles.textDetails}>Status</p>
-        </div>
-        <div className={styles.eventsWrapper}>
+      <h2 className="font-bold text-2xl mt-10 mb-2">Your Events</h2>
+      <div className="max-md:overflow-x-scroll px-3">
+        <div className="flex flex-col">
           {data.map((data, idx) => {
             return (
               <div
-                className={styles.listWrapper}
+                className="flex mb-3 bg-white p-3 items-center cursor-pointer rounded shadow-lg w-full max-md:w-[1000px] max-sm:flex-wrap max-sm:w-full"
                 onClick={() => navigate("" + idx)}
                 key={idx}
               >
-                <img className={styles.eventImg} src={data.imgUrl} />
-                <p className={styles.textDetails}>{data.name}</p>
-                <p className={styles.textDetails}>{data.startDate}</p>
-                <p className={styles.textDetails}>IDR{data.price}</p>
-                <p className={styles.textDetails}>
-                  {data.ticketSold}/{data.stock}
+                <img className="h-24 object-cover w-[15%] max-sm:w-full max-sm:h-1/2" src={data.imgUrl} alt="event-img" />
+                <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
+                    Event Title
+                    <span className="w-fit font-semibold">{data.name}</span>
                 </p>
-                <p className={styles.textDetails}>
-                  {data.eventStatus ? "Active" : "End"}
+                <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
+                    Date
+                    <span className="w-fit font-semibold">{data.startDate}</span>
+                </p>
+                <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
+                    Price
+                    <span className="w-fit font-semibold">IDR {data.price}</span>
+                </p>
+                <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
+                    Stock
+                    <span className="w-fit font-semibold">{data.ticketSold}/{data.stock}</span>
+                </p>
+                <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
+                    Status
+                    <span className="w-fit font-semibold">{data.eventStatus ? "Active" : "End"}</span>
                 </p>
               </div>
             );

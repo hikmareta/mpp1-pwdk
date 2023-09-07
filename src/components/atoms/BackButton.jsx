@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 export const BackButton = (props) => {
   const navigate = useNavigate();
   return (
-    <div style={{display:'flex', alignItems:'center', fontSize:'1.5em', fontWeight:'700', margin:'1em 0'}}>
-        <MdArrowBackIosNew style={{marginRight:'1em', cursor:'pointer'}} onClick={()=>navigate(-1)}/>
+    <div className="flex items-center text-2xl font-bold my-8" >
+        <MdArrowBackIosNew className="mr-8 cursor-pointer" onClick={()=>navigate(-1)}/>
       {props.children}
     </div>
   );

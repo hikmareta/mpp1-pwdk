@@ -1,10 +1,7 @@
-import React from "react";
-import styles from "../../style/Orderlist.module.css";
+import React, { useState, useEffect } from "react";
 import Container from "../atoms/Container";
 import { BackButton } from "../atoms/BackButton";
-import { useState } from "react";
 import OrderCard from "../organisms/OrderCard";
-import { useEffect } from "react";
 const dataBase = [
   {
     name: "Event Title Lorem Ipsum",
@@ -63,10 +60,10 @@ const OrderList = () => {
   return (
     <Container>
       <BackButton>Your Orders</BackButton>
-      <div className={styles.tabWrapper}>
+      <div className="flex mb-5 gap-x-6">
         <button
           className={
-            !tabBarSelected ? styles.tabButton : styles.tabButtonSelected
+            !tabBarSelected ? "bg-transparent font-semibold" : "bg-transparent font-semibold text-primaryColor border-b-2 border-primaryColor"
           }
           onClick={() => onClickOrderList()}
         >
@@ -74,7 +71,7 @@ const OrderList = () => {
         </button>
         <button
           className={
-            tabBarSelected ? styles.tabButton : styles.tabButtonSelected
+            tabBarSelected ? "bg-transparent font-semibold" : "bg-transparent font-semibold text-primaryColor border-b-2 border-primaryColor"
           }
           onClick={() => onClickDone()}
         >
