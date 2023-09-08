@@ -73,7 +73,7 @@
             "location": "TechHub Co-working Space",
             "img_url": "/src/assets/img/event-4.jpg",
             "desc": "Kompetisi pemrograman intensif selama tiga hari.",
-            "price": 70
+            "price": 700000
           },
           {
             "id": 5,
@@ -125,7 +125,7 @@
             "location": "TechHub Convention Center",
             "img_url": "/src/assets/img/event-8.jpg",
             "desc": "Konferensi teknologi tahunan.",
-            "price": 85
+            "price": 850000
           },
           {
             "id": 9,
