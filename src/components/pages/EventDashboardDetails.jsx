@@ -6,46 +6,62 @@ import Container from "../atoms/Container";
 import ModalPromo from "../organisms/ModalPromo";
 import { useState } from "react";
 import PromoCard from "../organisms/PromoCard";
+import {
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 const data = [
   {
-    name:"Lorem Ipsum Event1",
-    startDate: "1 Sept 23",
-    endDate:"2 Sept 23",
+    name: "Lorem Ipsum Event1",
+    start_date: "1 Sept 23",
+    end_date: "2 Sept 23",
+    start_time: '19.00',
+    end_time: '20.00',
     price: 240000,
-    ticketSold:200,
+    location: "DKI Jakarta",
+    img_url:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    desc:"lorem ipsum bla bla bla description",
+    ticketSold: 200,
     stock: 2400,
-    imgUrl:"https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus:true,
+    eventStatus: true,
   },
   {
-    name:"Lorem Ipsum Event2",
+    name: "Lorem Ipsum Event2",
     startDate: "2 Sept 23",
-    endDate:"2 Sept 23",
+    endDate: "2 Sept 23",
     price: 100000,
-    ticketSold:4000,
+    ticketSold: 4000,
     stock: 4000,
-    imgUrl:"https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus:true,
+    imgUrl:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    eventStatus: true,
   },
   {
-    name:"Lorem Ipsum Event3",
+    name: "Lorem Ipsum Event3",
     startDate: "1 Sept 23",
-    endDate:"5 Sept 23",
+    endDate: "5 Sept 23",
     price: 1500000,
-    ticketSold:400,
+    ticketSold: 400,
     stock: 2400,
-    imgUrl:"https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus:true,
+    imgUrl:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    eventStatus: true,
   },
   {
-    name:"Lorem Ipsum Event4",
+    name: "Lorem Ipsum Event4",
     startDate: "3 Sept 23",
-    endDate:"3 Sept 23",
+    endDate: "3 Sept 23",
     price: 500000,
-    ticketSold:100,
+    ticketSold: 100,
     stock: 2400,
-    imgUrl:"https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus:true,
+    imgUrl:
+      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
+    eventStatus: true,
   },
 ];
 const EventDashboardDetails = () => {
@@ -56,20 +72,32 @@ const EventDashboardDetails = () => {
       <div className="flex w-full gap-4 mb-8 max-md:flex-wrap">
         <div className="flex flex-col w-[65%] min-h-[40%] max-h-fit justify-between items-center max-md:w-full">
           <div className="w-full h-[90%] bg-white p-2 rounded-xl shadow-lg max-md:h-[300px]">
-            <Chart data={data} />
+            <Chart data={data}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="ticketSold" fill="#1450A3" />
+              <Bar dataKey="stock" fill="#0faaaa" />
+            </Chart>
           </div>
           <div className="flex w-full justify-end gap-x-4 mt-4 max-md:justify-center">
-            <button className="bg-primaryColor text-white font-normal py-1 px-4 rounded">Edit Event</button>
-            <button className="bg-transparent hover:bg-red-700 text-red-700 font-normal hover:text-white py-1 px-4 border border-red-700 hover:border-transparent rounded">Delete Event</button>
+            <button className="bg-primaryColor text-white font-normal py-1 px-4 rounded">
+              Edit Event
+            </button>
+            <button className="bg-transparent hover:bg-red-700 text-red-700 font-normal hover:text-white py-1 px-4 border border-red-700 hover:border-transparent rounded">
+              Delete Event
+            </button>
           </div>
         </div>
         <div className="flex flex-col w-[35%] gap-y-4 min-h-[45%] max-md:w-full max-h-fit h-fit">
-          <EventCard />
+          <EventCard data={data[0]}/>
           <PromoCard onClickAddPromo={() => setModalOpen(true)} />
         </div>
       </div>
       <h2 className="text-2xl font-semibold">Transaction</h2>
-      <div className='block overflow-x-scroll'>
+      <div className="block overflow-x-auto">
         <table className="table-auto w-full">
           <thead>
             <tr>
@@ -94,7 +122,7 @@ const EventDashboardDetails = () => {
             </tr>
           </tbody>
         </table>
-        </div>
+      </div>
       {modalOpen && <ModalPromo onClickCancel={() => setModalOpen(false)} />}
     </Container>
   );
