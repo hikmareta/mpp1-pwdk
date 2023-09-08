@@ -1,13 +1,16 @@
+import React, {useState} from 'react'
 import { Link } from "react-router-dom";
-
-const Navbar = () => {
+import { FaUserCircle, FaCoins } from "react-icons/fa";
+const Navbar = (props) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [openMenu, setOpenMenu] = useState(false)
   return (
     <>
       <header className="bg-white sticky top-0 shadow-md z-20">
         <div className="mx-auto container px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex-1 md:flex md:items-center md:gap-12">
-              <a className="block text-black" href="/">
+              <a className="block text-black w-fit" href="/">
                 <h2 className="font-bold text-3xl">PASSIFY</h2>
               </a>
             </div>
@@ -17,10 +20,9 @@ const Navbar = () => {
                 <ul className="flex items-center gap-6 text-sm">
                   <li>
                     <div className="text-gray-500 transition hover:text-gray-500/75">
-                      Create Event
+                      <Link to="/explore"> Create Event </Link>
                     </div>
                   </li>
-
                   <li>
                     <div className="text-gray-500 transition hover:text-gray-500/75">
                       <Link to="/explore"> Explore </Link>
@@ -29,21 +31,20 @@ const Navbar = () => {
                 </ul>
               </nav>
 
-              <div className="flex items-center gap-4">
-                <div className="sm:flex sm:gap-4">
-                  <div className="rounded-md border-primaryColor border-2 border-solid px-5 py-2 text-sm font-medium text-primaryColor shadow hover:bg-primaryColor hover:text-white hover:shadow-2xl">
-                    <Link to="/login"> Login </Link>
-                  </div>
-
-                  <div className="hidden sm:flex">
-                    <div className="rounded-md bg-primaryColor px-5 py-2 text-sm font-medium text-white hover:drop-shadow-2xl">
-                      <Link to="/Signup"> Sign up </Link>
+              <div className="flex items-center gap-4 bg-red-700">
+                { !isAuthenticated ?
+                 <div className="sm:flex sm:gap-4">
+                    <div className="rounded-md border-primaryColor border-2 border-solid px-5 py-2 text-sm font-medium text-primaryColor shadow hover:bg-primaryColor hover:text-white hover:shadow-2xl">
+                      <Link to="/login"> Login </Link>
                     </div>
-                  </div>
-                </div>
-
-                <div className="block md:hidden">
-                  <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                    <div className="hidden sm:flex">
+                      <div className="rounded-md bg-primaryColor px-5 py-2 text-sm font-medium text-white hover:drop-shadow-2xl">
+                        <Link to="/Signup"> Sign up </Link>
+                      </div>
+                    </div>
+                  </div> :
+                <div className="block relative bg-white">
+                  <button className="max-md:visible md:hidden rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75" onClick={()=>setOpenMenu(true)}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-5 w-5"
@@ -54,7 +55,31 @@ const Navbar = () => {
                       <path d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                   </button>
+                  <FaUserCircle className="max-md:hidden md:visible fill-gray-700 h-8 w-8 cursor-pointer" onClick={()=>setOpenMenu(true)}/>
+                  {openMenu && 
+                  <div className="absolute z-50 w-[250px] top-3/4 right-0 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-xl" onMouseLeave={()=>setOpenMenu(false)}>
+                  <div className="px-4 py-3">
+                    <span className="block text-sm text-gray-900">Bonnie Green</span>
+                    <span className="block text-sm text-gray-500 truncate ... hover:text-clip">name@yuhuu.com</span>
+                    <span className="flex items-center text-sm text-gray-500 truncate mt-2"><FaCoins className="mr-2 fill-yellow-600"/>1000</span>
+                  </div>
+                  <ul className="py-2" aria-labelledby="user-menu-button">
+                    <li>
+                      <Link to="/dashboard" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dashboard</Link>
+                    </li>
+                    <li>
+                      <Link to="/order-list" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Orders</Link>
+                    </li>
+                    <li>
+                      <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</Link>
+                    </li>
+                    <li>
+                      <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</Link>
+                    </li>
+                  </ul>
+                  </div>}
                 </div>
+                }
               </div>
             </div>
           </div>
