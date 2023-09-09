@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { BackButton } from "../atoms/BackButton";
 import Chart from "../molecules/Chart";
 import EventCard from "../organisms/EventCard";
@@ -6,6 +6,8 @@ import Container from "../atoms/Container";
 import ModalPromo from "../organisms/ModalPromo";
 import { useState } from "react";
 import PromoCard from "../organisms/PromoCard";
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 import {
   Bar,
   XAxis,
@@ -14,58 +16,23 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-const data = [
-  {
-    name: "Lorem Ipsum Event1",
-    start_date: "1 Sept 23",
-    end_date: "2 Sept 23",
-    start_time: '19.00',
-    end_time: '20.00',
-    price: 240000,
-    location: "DKI Jakarta",
-    img_url:
-      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    desc:"lorem ipsum bla bla bla description",
-    ticketSold: 200,
-    stock: 2400,
-    eventStatus: true,
-  },
-  {
-    name: "Lorem Ipsum Event2",
-    startDate: "2 Sept 23",
-    endDate: "2 Sept 23",
-    price: 100000,
-    ticketSold: 4000,
-    stock: 4000,
-    imgUrl:
-      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus: true,
-  },
-  {
-    name: "Lorem Ipsum Event3",
-    startDate: "1 Sept 23",
-    endDate: "5 Sept 23",
-    price: 1500000,
-    ticketSold: 400,
-    stock: 2400,
-    imgUrl:
-      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus: true,
-  },
-  {
-    name: "Lorem Ipsum Event4",
-    startDate: "3 Sept 23",
-    endDate: "3 Sept 23",
-    price: 500000,
-    ticketSold: 100,
-    stock: 2400,
-    imgUrl:
-      "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-    eventStatus: true,
-  },
-];
+
 const EventDashboardDetails = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [data, setData] = useState(null)
+  const param = useParams()
+  useEffect(() => {
+    const getEvents = async () => {
+      try {
+        let response = await axios.get('http://localhost:3000' + '/events/' + param.eventId)
+        setData(response.data)
+      }
+      catch (e) {
+          return e
+      }
+    }
+    getEvents()
+  }, [])
   return (
     <Container>
       <BackButton>Event Dashboard Details</BackButton>
@@ -92,7 +59,7 @@ const EventDashboardDetails = () => {
           </div>
         </div>
         <div className="flex flex-col w-[35%] gap-y-4 min-h-[45%] max-md:w-full max-h-fit h-fit">
-          <EventCard data={data[0]}/>
+          <EventCard data={data}/>
           <PromoCard onClickAddPromo={() => setModalOpen(true)} />
         </div>
       </div>

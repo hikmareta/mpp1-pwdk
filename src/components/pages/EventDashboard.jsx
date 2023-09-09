@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BackButton } from "../atoms/BackButton";
 import Chart from "../molecules/Chart";
 import Container from "../atoms/Container";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 import {
   Bar,
   XAxis,
@@ -11,6 +12,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import { currencyFormat, dateFormat } from "../../utils/formatter";
 
 const data = [
   {
@@ -30,8 +32,35 @@ const data = [
   }
 ];
 
+
 const EventDasboard = () => {
+  const user_id = 1
   const navigate = useNavigate();
+  const [data, setData] = useState([])
+  const [transData, setTransData] = useState([])
+  useEffect(() => {
+  const getEvents = async () => {
+    try {
+      let response = await axios.get('http://localhost:3000' + '/events')
+      let eventsData = response.data.filter(data => {
+        return data.user_id === user_id
+      })
+      let response2 = await axios.get('http://localhost:3000' + '/transactions')
+      setData(eventsData)
+      setTransData(response2.data)
+    }
+    catch (e) {
+        return e
+    }
+  }
+  getEvents()
+}, [])
+  const ticketSold = (value) => {
+    const filteredUser = transData?.filter(dt => {
+      return dt.event_id === value
+    })
+    return filteredUser.reduce((a, b) => a + (b['qty'] || 0), 0)
+  }
   return (
     <Container>
       <BackButton>Event Dashboard</BackButton>
@@ -68,28 +97,29 @@ const EventDasboard = () => {
       <div className="max-md:overflow-x-scroll px-3">
         <div className="flex flex-col">
           {data.map((data, idx) => {
+
             return (
               <div
                 className="flex mb-3 bg-white p-3 items-center cursor-pointer rounded shadow-lg w-full max-md:w-[1000px] max-sm:flex-wrap max-sm:w-full"
-                onClick={() => navigate("" + idx)}
+                onClick={() => navigate("" + data.id)}
                 key={idx}
               >
-                <img className="h-24 object-cover w-[15%] max-sm:w-full max-sm:h-1/2" src={data.img_url} alt="event-img" />
+                <img className="h-24 object-cover w-full max-w-[15%] object-cover max-sm:max-w-[100%] max-sm:w-full max-sm:h-1/2" src={data.img_url} alt="event-img" />
                 <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
                     Event Title
                     <span className="w-fit font-semibold">{data.name}</span>
                 </p>
                 <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
                     Date
-                    <span className="w-fit font-semibold">{data.start_date}</span>
+                    <span className="w-fit font-semibold">{dateFormat(data.start_date)}</span>
                 </p>
                 <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
                     Price
-                    <span className="w-fit font-semibold">IDR {data.price}</span>
+                    <span className="w-fit font-semibold">{currencyFormat(data.price)}</span>
                 </p>
                 <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
                     Stock
-                    <span className="w-fit font-semibold">{data.ticketSold}/{data.stock}</span>
+                    <span className="w-fit font-semibold">{ticketSold(data.id)}/{data.quota}</span>
                 </p>
                 <p className="flex flex-col font-regular w-full pl-4 max-sm:p-1 max-sm:text-sm">
                     Status

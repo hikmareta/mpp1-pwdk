@@ -34,6 +34,7 @@
             "location": "Jakarta Convention Center",
             "img_url": "/src/assets/img/event-1.jpg",
             "desc": "Seminar tentang pemrograman web modern.",
+            "quota" : 100,
             "price": 500000
           },
           {
@@ -47,6 +48,7 @@
             "location": "Design Academy",
             "img_url": "/src/assets/img/event-2.jpg",
             "desc": "Pelatihan desain antarmuka pengguna yang interaktif.",
+            "quota" : 10,
             "price": 750000
           },
           {
@@ -60,6 +62,7 @@
             "location": "TechHub Co-working Space",
             "img_url": "/src/assets/img/event-3.jpg",
             "desc": "Workshop pembuatan aplikasi mobile dengan React Native.",
+            "quota" : 65,
             "price": 600000
           },
           {
@@ -73,6 +76,7 @@
             "location": "TechHub Co-working Space",
             "img_url": "/src/assets/img/event-4.jpg",
             "desc": "Kompetisi pemrograman intensif selama tiga hari.",
+            "quota" : 600,
             "price": 700000
           },
           {
@@ -86,6 +90,7 @@
             "location": "AI Institute",
             "img_url": "/src/assets/img/event-5.jpg",
             "desc": "Seminar tentang kecerdasan buatan dan machine learning.",
+            "quota" : 120,
             "price": 550000
           },
           {
@@ -99,6 +104,7 @@
             "location": "TechOps Center",
             "img_url": "/src/assets/img/event-6.jpg",
             "desc": "Pelatihan pengembangan dan operasi.",
+            "quota" : 100,
             "price": 800000
           },
           {
@@ -112,6 +118,7 @@
             "location": "AI Institute",
             "img_url": "/src/assets/img/event-7.jpg",
             "desc": "Kursus lanjutan tentang kecerdasan buatan.",
+            "quota" : 1400,
             "price": 900000
           },
           {
@@ -125,6 +132,7 @@
             "location": "TechHub Convention Center",
             "img_url": "/src/assets/img/event-8.jpg",
             "desc": "Konferensi teknologi tahunan.",
+            "quota" : 130,
             "price": 850000
           },
           {
@@ -138,6 +146,7 @@
             "location": "Cyber Security Institute",
             "img_url": "/src/assets/img/event-9.jpg",
             "desc": "Pelatihan keamanan jaringan dan siber.",
+            "quota" : 100,
             "price": 700000
           },
           {
@@ -151,6 +160,7 @@
             "location": "TechHub Co-working Space",
             "img_url": "/src/assets/img/event-10.jpg",
             "desc": "Kompetisi pemrograman dan hacking selama tiga hari.",
+            "quota" : 2000,
             "price": 750000
           },
           {
@@ -164,6 +174,7 @@
             "location": "Tech Seminar Hall",
             "img_url": "/src/assets/img/event-11.jpg",
             "desc": "Seminar tentang pengembangan aplikasi mobile.",
+            "quota" : 300,
             "price": 450000
           },
           {
@@ -177,6 +188,7 @@
             "location": "Data Science Institute",
             "img_url": "/src/assets/img/event-12.jpg",
             "desc": "Pelatihan ilmu data dan analisis data.",
+            "quota" : 1200,
             "price": 800000
           },
           {
@@ -190,6 +202,7 @@
             "location": "TechHub Convention Center",
             "img_url": "/src/assets/img/event-13.jpg",
             "desc": "Konferensi teknologi tahunan.",
+            "quota" : 90,
             "price": 850000
           },
           {
@@ -203,6 +216,7 @@
             "location": "Cyber Security Institute",
             "img_url": "/src/assets/img/event-14.jpg",
             "desc": "Pelatihan keamanan jaringan dan siber.",
+            "quota" : 500,
             "price": 700000
           },
           {
@@ -216,6 +230,7 @@
             "location": "TechHub Co-working Space",
             "img_url": "/src/assets/img/event-15.jpg",
             "desc": "Kompetisi pemrograman dan hacking selama tiga hari.",
+            "quota" : 100,
             "price": 750000
           },
           {
@@ -229,6 +244,7 @@
             "location": "Tech Seminar Hall",
             "img_url": "/src/assets/img/event-16.jpg",
             "desc": "Seminar tentang pengembangan aplikasi mobile.",
+            "quota" : 300,
             "price": 450000
           },
           {
@@ -242,6 +258,7 @@
             "location": "Tech Seminar Hall",
             "img_url": "/src/assets/img/event-18.jpg",
             "desc": "Seminar tentang kecerdasan buatan dan machine learning.",
+            "quota" : 1000,
             "price": 600000
           },
           {
@@ -255,6 +272,7 @@
             "location": "TechHub Co-working Space",
             "img_url": "/src/assets/img/event-19.jpg",
             "desc": "Pelatihan pengembangan web modern.",
+            "quota" : 100,
             "price": 650000
           },
           {
@@ -268,6 +286,7 @@
             "location": "TechHub Co-working Space",
             "img_url": "/src/assets/img/event-20.jpg",
             "desc": "Kompetisi pemrograman dan hacking selama tiga hari.",
+            "quota" : 500,
             "price": 700000
           }
     ],
@@ -287,7 +306,7 @@
           {
             "id": 2,
             "user_id": 1,
-            "event_id": 2002,
+            "event_id": 20,
             "name": "John Doe",
             "email": "john@example.com",
             "date": "2023-09-09",

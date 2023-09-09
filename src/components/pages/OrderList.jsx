@@ -67,7 +67,7 @@ const OrderList = () => {
           }
           onClick={() => onClickOrderList()}
         >
-          Order List
+          Purchased
         </button>
         <button
           className={
