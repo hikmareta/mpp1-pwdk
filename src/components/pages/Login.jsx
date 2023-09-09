@@ -1,19 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-
-  const submitLogin = () => {
-    if (email && password) {
-      navigate("/explore");
-    } else {
-      console.log("error");
-    }
-  };
-
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
@@ -34,8 +21,7 @@ const Login = () => {
           </p>
         </div>
 
-        {/* <form action="" > */}
-        <div className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+        <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
           <div>
             <label htmlFor="email" className="sr-only">
               Email
@@ -46,10 +32,6 @@ const Login = () => {
                 type="email"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -81,10 +63,6 @@ const Login = () => {
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -124,13 +102,11 @@ const Login = () => {
             <button
               type="submit"
               className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-              onClick={submitLogin}
             >
-              Login
+              <Link to="/"> Login </Link>
             </button>
           </div>
-        </div>
-        {/* </form> */}
+        </form>
       </div>
     </section>
   );
