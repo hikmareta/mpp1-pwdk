@@ -23,12 +23,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<EventDashboard />} />
-        <Route
-          path="/dashboard/:eventID"
-          element={<EventDashboardDetails />}
-        />
+        <Route path="/dashboard/:eventId" element={<EventDashboardDetails />}/>
         <Route path="/order-list" element={<OrderList />} />
-        <Route path="*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/choose-role" element={<ChooseRole />} />
@@ -37,6 +33,7 @@ function App() {
         <Route path="/create-event/:id" element={<EventCreation />} />
         <Route path="/order-list/:orderId/review" element={<Review />} />
         <Route path="/:id/registration" element={<EventRegistration />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
