@@ -45,7 +45,7 @@ const ChooseRole = () => {
             </div>
 
             <div className="mt-8 block rounded-full border border-blue-600 bg-blue-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-blue-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500">
-              <Link to="/"> Discover Event </Link>
+              <Link to="/explore"> Discover Event </Link>
             </div>
           </div>
 

@@ -1,6 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  navigate = useNavigate();
+
+  const submitLogin = () => {
+    if (email && password) {
+      navigate("/explore");
+    } else {
+      console.log("Fill in the form!");
+    }
+  };
+
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
@@ -16,8 +29,9 @@ const Login = () => {
           <h1 className="text-2xl font-bold sm:text-3xl"> Welcome Back! </h1>
 
           <p className="mt-4 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-            nulla eaque error neque ipsa culpa autem, at itaque nostrum!
+            Welcome back! We're thrilled to have you here. Please log in to
+            access your account and unlock a world of exciting event
+            experiences.
           </p>
         </div>
 
@@ -32,6 +46,10 @@ const Login = () => {
                 type="email"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -63,6 +81,10 @@ const Login = () => {
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -102,8 +124,9 @@ const Login = () => {
             <button
               type="submit"
               className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+              onClick={submitLogin}
             >
-              <Link to="/"> Login </Link>
+              <Link to="/explore"> Login </Link>
             </button>
           </div>
         </form>
