@@ -33,7 +33,11 @@ const ChooseRole = () => {
         </ol>
       </div>
 
+
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+
+      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:items-center md:gap-8">
           <div className="rounded-2xl border border-blue-600 p-6 shadow-sm ring-1 ring-blue-600 sm:order-last sm:px-8 lg:p-12">
             <div className="text-center">
@@ -44,7 +48,11 @@ const ChooseRole = () => {
               </p>
             </div>
 
+
             <div className="mt-8 block rounded-full border border-blue-600 bg-blue-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-blue-700 hover:ring-1 hover:ring-blue-700 focus:outline-none focus:ring active:text-blue-500">
+
+            <div className="mt-8 block rounded-full border border-blue-600 bg-blue-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-blue-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500">
+
               <Link to="/"> Discover Event </Link>
             </div>
           </div>
@@ -53,13 +61,18 @@ const ChooseRole = () => {
             <div className="text-center">
               <p className="mt-2 sm:mt-4">
                 <b className="text-2xl font-bold text-gray-900 sm:text-4xl">
-                  Create Event
+                  <Link to="/create-event/:id"> Create Event </Link>
                 </b>
               </p>
             </div>
 
+
             <div className="mt-8 block rounded-full border border-blue-600 bg-blue-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-blue-700 hover:ring-1 hover:ring-blue-700 focus:outline-none focus:ring active:text-blue-500">
               <Link to="/create-event"> Create Event </Link>
+
+            <div className="mt-8 block rounded-full border border-blue-600 bg-blue-600 px-12 py-3 text-center text-sm font-medium text-white hover:bg-blue-700 hover:ring-1 hover:ring-indigo-700 focus:outline-none focus:ring active:text-indigo-500">
+              <Link to="/create-event/:id"> Create Event </Link>
+
             </div>
           </div>
         </div>

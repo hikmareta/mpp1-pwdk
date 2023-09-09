@@ -4,7 +4,7 @@ const Hero = () => {
 
   return (
     <>
-        <section className="bg-[url('/src/assets/img/hero-image.webp')] bg-no-repeat bg-cover py-44">
+        <section className="bg-[url('/src/assets/img/hero-image.webp')] bg-no-repeat bg-cover bg-center py-44">
           <div className="container mx-auto px-5">
             <div className="text-center">
                   <h1 className="text-4xl font-bold text-white lg:text-6xl mb-6 lg:mb-10">Expand Your Knowledge <br /> by Joining Our Greatest Events</h1>
