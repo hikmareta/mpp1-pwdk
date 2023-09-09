@@ -34,9 +34,17 @@
 
 .product h1 {
   font-size: 20px;
+  font-weight: 700;
 }
 
 .star {
+  display: flex;
+  transition-duration: 500ms;
+  cursor: pointer;
+}
+
+.star:hover {
+  transform: translateY(-0.25rem);
 }
 
 textarea {
@@ -49,10 +57,15 @@ textarea {
   background: blue;
   color: #fff;
   margin-top: 10px;
-  width: 200%;
+  width: 150%;
   border-radius: 6px;
   padding: 10px 0;
   border: none;
   font-weight: bolder;
   cursor: pointer;
+}
+
+.button:hover {
+  transform: translateY(-0.25rem);
+  transition-duration: 500ms;
 }
