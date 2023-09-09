@@ -1,38 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const navigate = useNavigate();
-
-  const submitData = async () => {
-    try {
-      if (fullName && email && password && confirmPassword) {
-        if (password === confirmPassword) {
-          const data = {
-            fullName,
-            email,
-            password,
-            confirmPassword,
-          };
-          const res = await axios.post("http://localhost:3000/users", data);
-          console.log(res);
-          navigate("/choose-role");
-        } else {
-          console.log("Password Tidak Sama");
-        }
-      } else {
-        console.log("error");
-      }
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
@@ -56,7 +24,7 @@ const SignUp = () => {
           </p>
         </div>
 
-        <div className="mx-auto mb-0 mt-8 max-w-md space-y-4">
+        <form action="" className="mx-auto mb-0 mt-8 max-w-md space-y-4">
           <div>
             <label htmlFor="fullName" className="sr-only">
               Full Name
@@ -67,10 +35,6 @@ const SignUp = () => {
                 type="text"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter Full Name"
-                value={fullName}
-                onChange={(e) => {
-                  setFullName(e.target.value);
-                }}
               />
             </div>
           </div>
@@ -85,10 +49,6 @@ const SignUp = () => {
                 type="email"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
               />
             </div>
           </div>
@@ -103,10 +63,6 @@ const SignUp = () => {
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter password"
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -144,10 +100,6 @@ const SignUp = () => {
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Confirm password"
-                value={confirmPassword}
-                onChange={(e) => {
-                  setConfirmPassword(e.target.value);
-                }}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -185,14 +137,13 @@ const SignUp = () => {
             </p>
 
             <button
+              type="submit"
               className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-              onClick={submitData}
             >
-              Sign Up
+              <Link to="/choose-role"> Sign Up </Link>
             </button>
           </div>
-        </div>
-        {/* </form> */}
+        </form>
       </div>
     </section>
   );
