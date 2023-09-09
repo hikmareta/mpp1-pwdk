@@ -17,7 +17,7 @@ const Navbar = () => {
                 <ul className="flex items-center gap-6 text-sm">
                   <li>
                     <div className="text-gray-500 transition hover:text-gray-500/75">
-                      Create Event
+                    <Link to="/create-event"> Create Event </Link>
                     </div>
                   </li>
 

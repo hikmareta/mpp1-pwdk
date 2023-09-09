@@ -32,9 +32,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/choose-role" element={<ChooseRole />} />
-        <Route path="/event-detail/:id" element={<EventDetail />} />
+        <Route path="/events/:id" element={<EventDetail />} />
         <Route path="/explore" element={<ExploreEvent />} />
-        <Route path="/create-event/:id" element={<EventCreation />} />
+        <Route path="/create-event" element={<EventCreation />} />
         <Route path="/order-list/:orderId/review" element={<Review />} />
         <Route path="/:id/registration" element={<EventRegistration />} />
       </Routes>
