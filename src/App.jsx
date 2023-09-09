@@ -19,28 +19,27 @@ import EventRegistration from "./components/pages/EventRegistration";
 function App() {
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<EventDashboard />} />
-        <Route path="/dashboard/:eventId" element={<EventDashboardDetails />}/>
-        <Route
-          path="/dashboard/:eventID"
-          element={<EventDashboardDetails />}
-        />
-        <Route path="/order-list" element={<OrderList />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/choose-role" element={<ChooseRole />} />
-        <Route path="/event-detail/:id" element={<EventDetail />} />
-        <Route path="/explore" element={<ExploreEvent />} />
-        <Route path="/create-event/:id" element={<EventCreation />} />
-        <Route path="/order-list/:orderId/review" element={<Review />} />
-        <Route path="/:id/registration" element={<EventRegistration />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:id/dashboard" element={<EventDashboard />} />
+      <Route
+        path="/:id/dashboard/:eventID"
+        element={<EventDashboardDetails />}
+      />
+      <Route path="/order-list" element={<OrderList />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/choose-role" element={<ChooseRole />} />
+      <Route path="/event-detail/:id" element={<EventDetail />} />
+      <Route path="/explore" element={<ExploreEvent />} />
+      <Route path="/create-event/:id" element={<EventCreation />} />
+      <Route path="/order-list/:orderId/review" element={<Review />} />
+      <Route path="/:id/registration" element={<EventRegistration />} />
+    </Routes>
+    <Footer />
+  </>
   );
 }
 
