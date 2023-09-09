@@ -20,7 +20,7 @@ const Navbar = (props) => {
                 <ul className="flex items-center gap-6 text-sm">
                   <li>
                     <div className="text-gray-500 transition hover:text-gray-500/75">
-                      <Link to="/explore"> Create Event </Link>
+                    <Link to="/create-event"> Create Event </Link>
                     </div>
                   </li>
                   <li>

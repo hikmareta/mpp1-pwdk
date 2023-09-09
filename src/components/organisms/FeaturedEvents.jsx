@@ -1,5 +1,6 @@
 import axios from 'axios'
 import {useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 const FeaturedEvent = () => {
     const [events, setEvents] = useState([])
 
@@ -7,11 +8,8 @@ const FeaturedEvent = () => {
         const fetchData = async () => {
             try {
               const response = await axios.get('http://localhost:3000/events');
-              // Handle response data di sini
-                // setEvents(response)
                 setEvents(response.data)
             } catch (error) {
-              // Handle error di sini
               console.error(error);
             }
           }
@@ -29,7 +27,7 @@ const FeaturedEvent = () => {
                    <div className="rounded-xl w-full h-full shadow-lg hover:shadow-2xl" key={item.id}>
                    <img className="rounded-t-xl h-[180px] w-full bg-center bg-contain" src={item.img_url} alt="gambar event" />
                    <div className="px-6 pb-8">
-                       <h2 className="font-semibold text-2xl text-primaryColor mt-4 mb-3 line-clamp-2 hover:line-clamp-none">{item.name}</h2>
+                       <h2 className="font-semibold text-2xl text-primaryColor mt-4 mb-3 line-clamp-2 hover:line-clamp-none"><Link to={`/events/${item.id}`}>{item.name}</Link></h2>
                        <p className="text-slate-600 mb-3 line-clamp-1 hover:line-clamp-none">{item.desc}</p>
                        <div className="flex flex-wrap">
                            <img src="" alt="" />
@@ -40,6 +38,7 @@ const FeaturedEvent = () => {
                         })}</p>
                        </div>
                        <p className="border-t-slate-200 border-t-2 font-bold text-xl pt-3">{(item.price).toLocaleString('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0, maximumFractionDigits: 2 })}</p>
+                       <button className='px-6 py-3 bg-primaryColor text-white rounded-lg mt-5'><Link to={`/events/${item.id}`}>Event Detail</Link></button>
                 </div>
                 </div> 
                 ))}                              
