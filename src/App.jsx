@@ -15,6 +15,7 @@ import ExploreEvent from "./components/pages/ExploreEvent";
 import EventCreation from "./components/pages/EventCreation";
 import Review from "./components/pages/Review";
 import EventRegistration from "./components/pages/EventRegistration";
+import OrderDetail from './components/pages/OrderDetail';
 
 function App() {
   return (
@@ -22,9 +23,9 @@ function App() {
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/:id/dashboard" element={<EventDashboard />} />
+      <Route path="/dashboard" element={<EventDashboard />} />
       <Route
-        path="/:id/dashboard/:eventID"
+        path="/dashboard/:eventID"
         element={<EventDashboardDetails />}
       />
       <Route path="/order-list" element={<OrderList />} />
@@ -35,6 +36,7 @@ function App() {
       <Route path="/event-detail/:id" element={<EventDetail />} />
       <Route path="/explore" element={<ExploreEvent />} />
       <Route path="/create-event/:id" element={<EventCreation />} />
+      <Route path="/order-list/:orderId" element={<OrderDetail/>} />
       <Route path="/order-list/:orderId/review" element={<Review />} />
       <Route path="/:id/registration" element={<EventRegistration />} />
     </Routes>

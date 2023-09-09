@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Container from "../atoms/Container";
 import { BackButton } from "../atoms/BackButton";
 import OrderCard from "../organisms/OrderCard";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 const dataBase = [
   {
     name: "Event Title Lorem Ipsum",
@@ -43,10 +45,32 @@ const dataBase2 = [
 ];
 const OrderList = () => {
   const [tabBarSelected, setTabBarSelected] = useState(true);
-  const [data, setData] = useState(dataBase);
+  const [dataTrans, setDataTrans] = useState([]);
+  const [dataTransDone, setDataTransDone] = useState([]);
+  const [dataEvents, setDataEvents] = useState([]);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    async function getData() {
+      let response = await axios.get("http://localhost:3000" + "/transactions");
+      let response2 = await axios.get("http://localhost:3000" + "/events");
+      let filteredTrans = response.data.filter((dt) => {
+        const event = response2.data.find((obj) => obj.id === dt.event_id);
+        return dt.user_id === 1 && new Date(event.end_date) >= new Date();
+      });
+      let filteredTransDone = response.data.filter((dt) => {
+        const event = response2.data.find((obj) => obj.id === dt.event_id);
+        return dt.user_id === 1 && new Date(event.end_date) <= new Date();
+      });
+      setDataEvents(response2.data);
+      setDataTrans(filteredTrans);
+      setDataTransDone(filteredTransDone);
+      setData(filteredTrans);
+    }
+    getData();
+  }, []);
   useEffect(() => {
     function getData() {
-      tabBarSelected ? setData(dataBase) : setData(dataBase2);
+      tabBarSelected ? setData(dataTrans) : setData(dataTransDone);
     }
     getData();
   }, [tabBarSelected]);
@@ -57,13 +81,18 @@ const OrderList = () => {
   const onClickDone = () => {
     setTabBarSelected(false);
   };
+  const navigate = useNavigate();
+  const param = useParams();
+
   return (
     <Container>
       <BackButton>Your Orders</BackButton>
       <div className="flex mb-5 gap-x-6">
         <button
           className={
-            !tabBarSelected ? "bg-transparent font-semibold" : "bg-transparent font-semibold text-primaryColor border-b-2 border-primaryColor"
+            !tabBarSelected
+              ? "bg-transparent font-semibold"
+              : "bg-transparent font-semibold text-primaryColor border-b-2 border-primaryColor"
           }
           onClick={() => onClickOrderList()}
         >
@@ -71,15 +100,25 @@ const OrderList = () => {
         </button>
         <button
           className={
-            tabBarSelected ? "bg-transparent font-semibold" : "bg-transparent font-semibold text-primaryColor border-b-2 border-primaryColor"
+            tabBarSelected
+              ? "bg-transparent font-semibold"
+              : "bg-transparent font-semibold text-primaryColor border-b-2 border-primaryColor"
           }
           onClick={() => onClickDone()}
         >
           Done
         </button>
       </div>
-      {data.map((dt, idx) => {
-        return <OrderCard key={idx} data={dt} />;
+      {data?.map((dt, idx) => {
+        return (
+          <OrderCard
+            key={idx}
+            data={dataEvents.find((obj) => obj.id === dt.event_id)}
+            transData={dt}
+            onClick={()=> navigate(`${dt.id}`,{state:{dataTrans:dt,dataEvents:dataEvents.find((obj) => obj.id === dt.event_id)}})}
+            onClickReview={(e) => {e.stopPropagation(); navigate(`${dt.id}/review`)}}
+          />
+        );
       })}
     </Container>
   );

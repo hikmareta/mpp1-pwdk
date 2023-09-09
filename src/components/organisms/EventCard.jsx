@@ -2,7 +2,7 @@ import React from "react";
 import { currencyFormat, dateFormat } from "../../utils/formatter";
 const EventCard = (props) => {
   const data = props.data
-  const date = data?.start_date === data?.end_date ? dateFormat(data?.start_date) : `${dateFormat(data?.start_date)} - ${dateFormat(data?.end_date)}}`
+  const date = data?.start_date === data?.end_date ? dateFormat(data?.start_date) : `${dateFormat(data?.start_date)} - ${dateFormat(data?.end_date)}`
   const price = data?.price > 0 ? currencyFormat(data?.price) : "Free"
   return (
     <div className="flex w-full flex-col overflow-hidden bg-white shadow-lg rounded-xl h-fit">
