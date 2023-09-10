@@ -16,6 +16,7 @@ const EventDashboardDetails = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [data, setData] = useState([]);
   const [tableData, setTableData] = useState([]);
+  const [promoData, setPromoData] = useState([])
   const param = useParams();
   useEffect(() => {
     const getEvents = async () => {
@@ -26,11 +27,18 @@ const EventDashboardDetails = () => {
         let response2 = await axios.get(
           "http://localhost:3000" + "/transactions"
         );
+        let response3 = await axios.get(
+          "http://localhost:3000" + "/promotions"
+        );
         const filteredTrans = response2.data.filter((dt) => {
+          return dt.event_id == param.eventId;
+        });
+        const filteredPromo = response3.data.filter((dt) => {
           return dt.event_id == param.eventId;
         });
         setData(response.data);
         setTableData(filteredTrans);
+        setPromoData(filteredPromo)
       } catch (e) {
         return e;
       }
@@ -64,7 +72,7 @@ const EventDashboardDetails = () => {
         </div>
         <div className="flex flex-col w-[35%] gap-y-4 min-h-[45%] max-md:w-full max-h-fit h-fit">
           <EventCard data={data} />
-          <PromoCard onClickAddPromo={() => setModalOpen(true)} />
+          <PromoCard onClickAddPromo={() => setModalOpen(true)} data={promoData}/>
         </div>
       </div>
       <h2 className="text-2xl font-semibold">Transaction</h2>
