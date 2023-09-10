@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 const EventDetail = () => {
 
     const params = useParams();
@@ -66,7 +66,7 @@ const EventDetail = () => {
                                 </div>
                             </dl>
                             </div>
-                            <button className="bg-primaryColor text-white rounded-lg py-2 px-28 hover:shadow-2xl mt-9">Beli Tiket</button>
+                            <button className="bg-primaryColor text-white rounded-lg py-2 px-28 hover:shadow-2xl mt-9"><Link to={`/${eventDetail.id}/registration`}>Beli Tiket</Link></button>
                         </div>
                     </div>
                 </div>
