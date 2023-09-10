@@ -58,7 +58,6 @@ const EventDashboardDetails = () => {
               <Tooltip />
               <Legend />
               <Bar dataKey="qty" fill="#1450A3" />
-              <Bar dataKey="stock" fill="#0faaaa" />
             </Chart>
           </div>
           <div className="flex w-full justify-end gap-x-4 mt-4 max-md:justify-center">
