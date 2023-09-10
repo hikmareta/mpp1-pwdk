@@ -1,9 +1,35 @@
 import React, {useState} from 'react'
 import { Link } from "react-router-dom";
 import { FaUserCircle, FaCoins } from "react-icons/fa";
+import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 const Navbar = (props) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [user, setUser] = useState(null)
   const [openMenu, setOpenMenu] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
+  useEffect(()=>{
+    const getData = async() => {
+      const response = await axios.get("http://localhost:3000" + "/users/1")
+      setUser(response.data)
+    }
+    getData()
+  },[])
+  useEffect(()=> {
+    if(localStorage.getItem('id') === "true") {
+      setIsAuthenticated(true)
+    }else{
+      setIsAuthenticated(false)
+    }
+  },[location])
+  const onClickSignUp = () => {
+    localStorage.setItem('id', JSON.stringify(false));
+    navigate('/')
+  }
   return (
     <>
       <header className="bg-white sticky top-0 shadow-md z-20">
@@ -31,16 +57,12 @@ const Navbar = (props) => {
                 </ul>
               </nav>
 
-              <div className="flex items-center gap-4 bg-red-700">
+              <div className="flex items-center gap-4">
                 { !isAuthenticated ?
                  <div className="sm:flex sm:gap-4">
-                    <div className="rounded-md border-primaryColor border-2 border-solid px-5 py-2 text-sm font-medium text-primaryColor shadow hover:bg-primaryColor hover:text-white hover:shadow-2xl">
-                      <Link to="/login"> Login </Link>
-                    </div>
+                      <NavLink className="rounded-md border-primaryColor border-2 border-solid px-5 py-2 text-sm font-medium text-primaryColor shadow hover:bg-primaryColor hover:text-white hover:shadow-2xl" to="/login"> Login </NavLink>
                     <div className="hidden sm:flex">
-                      <div className="rounded-md bg-primaryColor px-5 py-2 text-sm font-medium text-white hover:drop-shadow-2xl">
-                        <Link to="/Signup"> Sign up </Link>
-                      </div>
+                        <NavLink className="rounded-md bg-primaryColor px-5 py-2 text-sm font-medium text-white hover:drop-shadow-2xl" to="/Signup"> Sign up </NavLink>
                     </div>
                   </div> :
                 <div className="block relative bg-white">
@@ -59,9 +81,9 @@ const Navbar = (props) => {
                   {openMenu && 
                   <div className="absolute z-50 w-[250px] top-3/4 right-0 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-xl" onMouseLeave={()=>setOpenMenu(false)}>
                   <div className="px-4 py-3">
-                    <span className="block text-sm text-gray-900">Bonnie Green</span>
-                    <span className="block text-sm text-gray-500 truncate ... hover:text-clip">name@yuhuu.com</span>
-                    <span className="flex items-center text-sm text-gray-500 truncate mt-2"><FaCoins className="mr-2 fill-yellow-600"/>1000</span>
+                    <span className="block text-sm text-gray-900">{user?.name}</span>
+                    <span className="block text-sm text-gray-500 truncate ... hover:text-clip">{user?.email}</span>
+                    <span className="flex items-center text-sm text-gray-500 truncate mt-2"><FaCoins className="mr-2 fill-yellow-600"/>{user.points}</span>
                   </div>
                   <ul className="py-2" aria-labelledby="user-menu-button">
                     <li>
@@ -74,7 +96,7 @@ const Navbar = (props) => {
                       <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</Link>
                     </li>
                     <li>
-                      <Link to="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</Link>
+                      <Link to="/" onClick={()=>onClickSignUp()} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</Link>
                     </li>
                   </ul>
                   </div>}

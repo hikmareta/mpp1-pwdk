@@ -19,7 +19,7 @@ const OrderCard = (props) => {
         </div>
         <div className="flex h-full flex-col justify-between max-md:w-full max-md:justify-start max-md:h-1/2 max-sm:justify-start">
           <p className="font-medium text-primaryColor text-lg">{currencyFormat(data?.price * transData.qty)}</p>
-          {new Date(data.end_date) <= new Date() ? transData.review !== '' ? 
+          {new Date(data.end_date) <= new Date() ? transData.review === '' ? 
             <button className="w-24 bg-blue-700 p-1 rounded text-white self-end z-40" onClick={props.onClickReview}>Review</button> : <p className="self-end text-primaryColor">Your Review</p>
            : (
             <p className="font-normal text-gray-700 text-sm text-end">

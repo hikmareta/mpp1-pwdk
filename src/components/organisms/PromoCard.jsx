@@ -1,12 +1,11 @@
 import React from "react";
-import { useState } from "react";
 const PromoCard = (props) => {
-  const [promo, setPromo] = useState(null);
+  const promo = props.data[0]
   return (
     <div className="w-full bg-white p-5 rounded-lg shadow-lg h-fit">
       <p className="flex justify-between my-2 text-primaryColor font-semibold">
         Promotion Code
-        {promo !== null ? (
+        {promo !== undefined ? (
           <span className="text-red-700 font-normal cursor-pointer">Remove</span>
         ) : (
           <button
@@ -17,12 +16,12 @@ const PromoCard = (props) => {
           </button>
         )}
       </p>
-      {promo !== null ? (
+      {promo !== undefined ? (
         <>
-          <p className="text-black my-2 font-semibold">Presale Disc 20%</p>
+          <p className="text-black my-2 font-semibold">{promo?.promo_code}</p>
           <p className="flex justify-between">
-            1 Sept 2023 - 3 Sept 2023
-            <span>Quota: 40/50</span>
+            {`${promo?.start_date} - ${promo?.end_date}`}
+            <span>Quota: {promo?.quota}</span>
           </p>
         </>
       ) : null}

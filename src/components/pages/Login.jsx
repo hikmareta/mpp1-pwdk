@@ -4,10 +4,11 @@ import React, { useState } from "react";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  navigate = useNavigate();
+  const navigate = useNavigate();
 
   const submitLogin = () => {
     if (email && password) {
+      localStorage.setItem('id', JSON.stringify(true));
       navigate("/explore");
     } else {
       console.log("Fill in the form!");
