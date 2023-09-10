@@ -66,7 +66,7 @@ const EventDetail = () => {
                                 </div>
                             </dl>
                             </div>
-                            <button className="bg-primaryColor text-white rounded-lg py-2 px-28 hover:shadow-2xl mt-9"><Link to={`/${eventDetail.id}/registration`}>Beli Tiket</Link></button>
+                            <button className="bg-primaryColor text-white rounded-lg py-2 px-28 hover:shadow-2xl mt-9"><Link to={`/events/${eventDetail.id}/registration`}>Beli Tiket</Link></button>
                         </div>
                     </div>
                 </div>
