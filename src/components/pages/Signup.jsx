@@ -1,6 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 const SignUp = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  navigate = useNavigate();
+
+  const submitSignup = () => {
+    if (fullName && email && password && confirmPassword) {
+      if (password === confirmPassword) {
+        navigate("/choose-role");
+      } else {
+        console.log("Password not match!");
+      }
+    } else {
+      console.log("Fill the form!");
+    }
+  };
+
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
       <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
@@ -19,8 +38,9 @@ const SignUp = () => {
           </h1>
 
           <p className="mt-4 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-            nulla eaque error neque ipsa culpa autem, at itaque nostrum!
+            Unlock the world of seamless event ticket management and
+            unforgettable experiences join us today to register for effortless
+            access to your favorite events!
           </p>
         </div>
 
@@ -35,6 +55,10 @@ const SignUp = () => {
                 type="text"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter Full Name"
+                value={fullName}
+                onChange={(e) => {
+                  setFullName(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -48,7 +72,11 @@ const SignUp = () => {
               <input
                 type="email"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                value={email}
                 placeholder="Enter email"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
             </div>
           </div>
@@ -62,7 +90,11 @@ const SignUp = () => {
               <input
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                value={password}
                 placeholder="Enter password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -99,7 +131,11 @@ const SignUp = () => {
               <input
                 type="password"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+                value={confirmPassword}
                 placeholder="Confirm password"
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                }}
               />
 
               <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
@@ -139,6 +175,7 @@ const SignUp = () => {
             <button
               type="submit"
               className="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+              onClick={submitSignup}
             >
               <Link to="/choose-role"> Sign Up </Link>
             </button>
