@@ -1,23 +1,14 @@
+import axios from "axios";
 import EventCard from "../organisms/EventCard";
 import { useFormik } from "formik";
+import { useEffect } from "react";
+import { useState } from "react";
 import * as Yup from "yup";
+import { useParams } from "react-router-dom";
 
-const data = {
-  name: "Lorem Ipsum Event1",
-  start_date: "1 Sept 23",
-  end_date: "2 Sept 23",
-  start_time: "19.00",
-  end_time: "20.00",
-  price: 1000000,
-  location: "DKI Jakarta",
-  img_url:
-    "https://img.freepik.com/free-vector/music-event-poster-template-with-abstract-shapes_1361-1316.jpg",
-  desc: "lorem ipsum bla bla bla description",
-  ticketSold: 200,
-  stock: 2400,
-  eventStatus: true,
-};
 const EventRegistration = () => {
+  const [data, setData] = useState([])
+  const param = useParams()
   const price = data?.price > 0 ? `IDR ${data?.price.toLocaleString('id-ID')}` : "Free";
   const formik = useFormik({
     initialValues: {
@@ -41,6 +32,13 @@ const EventRegistration = () => {
       );
     },
   });
+  useEffect(()=>{
+    const getData = async() => {
+      const res = await axios.get("http://localhost:3000" + "/events/" + param.id)
+      setData(res.data)
+    }
+    getData()
+  },[])
   return (
     <>
       <section className="pt-14">
