@@ -82,7 +82,13 @@ export default function Review() {
           </div>
           <textarea className={style.place} placeholder="comment here..." />
           <div>
-            <button className={style.button} onClick={() => navigate("/")}>
+            <button
+              className={style.button}
+              onClick={() => {
+                navigate("/order-list");
+                alert("Thank you, see ya !");
+              }}
+            >
               Submit
             </button>
           </div>
