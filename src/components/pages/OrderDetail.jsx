@@ -54,7 +54,7 @@ const OrderDetail = () => {
               </p>
               <h1 className="font-normal text-base">Promotion Code</h1>
               <p className="mb-4 text-base font-semibold">
-                {dataTrans.promo_code}
+                {dataTrans.promo_code === "" ? "-" : dataTrans.promo_code}
               </p>
               <div>
                 <h3 className="text-md font-bold text-primaryColor mb-2">
