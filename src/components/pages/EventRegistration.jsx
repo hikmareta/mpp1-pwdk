@@ -5,10 +5,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import * as Yup from "yup";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const EventRegistration = () => {
   const [data, setData] = useState([])
   const param = useParams()
+  const navigate = useNavigate()
   const price = data?.price > 0 ? `IDR ${data?.price.toLocaleString('id-ID')}` : "Free";
   const formik = useFormik({
     initialValues: {
@@ -30,6 +32,7 @@ const EventRegistration = () => {
       alert(
         JSON.stringify(values, null, 2)
       );
+      navigate("/order-list")
     },
   });
   useEffect(()=>{
@@ -169,7 +172,7 @@ const EventRegistration = () => {
                           {price}
                         </p>
                       </div>
-                      <button className="bg-primaryColor text-white rounded-lg px-4 shadow-lg hover:bg-blue-700">
+                      <button className="bg-primaryColor text-white rounded-lg px-4 shadow-lg hover:bg-blue-700" >
                         Book Now
                       </button>
                     </div>
