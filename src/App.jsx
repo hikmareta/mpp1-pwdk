@@ -23,9 +23,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:id/dashboard" element={<EventDashboard />} />
+        <Route path="/dashboard" element={<EventDashboard />} />
         <Route
-          path="/:id/dashboard/:eventID"
+          path="/dashboard/:eventId"
           element={<EventDashboardDetails />}
         />
         <Route path="/order-list" element={<OrderList />} />
