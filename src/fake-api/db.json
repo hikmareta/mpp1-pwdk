@@ -288,6 +288,20 @@
       "desc": "Kompetisi pemrograman dan hacking selama tiga hari.",
       "quota": 500,
       "price": 700000
+    },
+    {
+      "id": 21,
+      "user_id": 1,
+      "name": "Buat Mini Project Dalam Semalam",
+      "start_date": "2023-09-20",
+      "end_date": "2023-12-12",
+      "start_time": "08:00 AM",
+      "end_time": "12:00 AM",
+      "location": "WFH",
+      "img_url": "/src/assets/img/event-7.jpg",
+      "desc": "Pantang tidur sebelum selesai, harus lebih cepat daripada pasukan Bandung Bondowoso dalam membangun candi",
+      "quota": 50,
+      "price": 200000
     }
   ],
   "transactions": [

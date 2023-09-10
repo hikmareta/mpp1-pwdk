@@ -35,7 +35,7 @@ function App() {
         <Route path="/choose-role" element={<ChooseRole />} />
         <Route path="/events/:id" element={<EventDetail />} />
         <Route path="/explore" element={<ExploreEvent />} />
-        <Route path="/create-event/:id" element={<EventCreation />} />
+        <Route path="/create-event" element={<EventCreation />} />
         <Route path="/order-list/:orderId" element={<OrderDetail/>} />
         <Route path="/order-list/:orderId/review" element={<Review />} />
         <Route path="/:id/registration" element={<EventRegistration />} />
